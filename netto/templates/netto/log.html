@@ -1,0 +1,65 @@
+<!-- 
+####################################################################################
+### Anggi Agista
+### email : agista.mailrespon@gmail.com
+#####################################################################################
+-->
+{% extends 'base.html' %}
+{% block pagecontent %}
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Logs</h1>
+    <a href="/admin/netto/log/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-clipboard-list fa-sm text-white-50"></i> Show All</a>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-7">
+    <!-- Log Activity -->
+    <div class="card shadow mb-8">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">All</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Action</th>
+                <th>Status</th>
+                <th>Host</th>
+                <th>Messages</th>
+                <th>Command</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Action</th>
+                <th>Status</th>
+                <th>Host</th>
+                <th>Messages</th>
+                <th>Command</th>
+              </tr>
+            </tfoot>
+            <tbody>
+                {% for log in logs1 %}
+              <tr>
+                <td>{{log.device_id}}</td>
+                <td>{{log.time}}</td>
+                <td>{{log.action}}</td>
+                <td>{{log.status}}</td>
+                <td>{{log.host}}</td>
+                <td>{{log.messages}}</td>
+                <td> <a href="/netto/verifcli/{{log.id}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-clipboard-list fa-sm text-white-50"></i></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+  </div>
+  </div>
+  </div>   
+</div>
+{% endblock %}

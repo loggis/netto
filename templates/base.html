@@ -1,0 +1,239 @@
+<!-- 
+####################################################################################
+### Anggi Agista
+### email : agista.mailrespon@gmail.com
+#####################################################################################
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Netto</title>
+  <!-- Custom fonts for this template-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link href="{% static  'fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+</head>
+<body id="page-top">
+    <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Logo Technologiw.com -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-dice-d6"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3"><sup>Net</sup>TO</div>
+      </a>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Devices
+      </div>
+      <!-- Nav Item - Manage Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseManage" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-server"></i>
+          <span>Manage</span>
+        </a>
+        <div id="collapseManage" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Devices</h6>
+            <a class="collapse-item" href="/admin/netto/device/add/">Add New Device</a>
+            <a class="collapse-item" href="{% url 'deviceslist' %}">Devices List</a>
+            <a class="collapse-item" href="/admin/">Administration</a>
+          </div>
+        </div>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Tools
+      </div>
+      <!-- Nav Item - Cisco Command -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'configt' %}">
+          <i class="fas fa-fw fa-terminal"></i>
+          <span>Cisco R&S Command</span></a>
+      </li>
+       
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystem" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>System</span>
+        </a>
+        <div id="collapseSystem" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Set</h6>
+            <a class="collapse-item" href="{% url 'saveconf' %}">Save Configuration</a>
+            <a class="collapse-item" href="{% url 'reload' %}">Reload</a>
+          </div>
+        </div>
+      </li>
+      <!-- Nav Item - Pinging -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'pinging' %}">
+          <i class="fas fa-fw fa-hands-helping"></i>
+          <span>Ping</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Other
+      </div>
+      <!-- Nav Item - Log Activity -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'log' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Log</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item no-arrow mx-1">
+              <a class="nav-link " href="/netto/saveconf/" id="alertsDropdown" role="button" >
+                <i class="fas fa-save fa-fw"></i>
+              </a>
+            </li>
+            <li class="nav-item no-arrow mx-1">
+              <a class="nav-link " href="/admin/netto/device/add/" id="alertsDropdown" role="button" >
+                <i class="fas fa-plus fa-fw"></i>
+              </a>
+            </li>
+            <li class="nav-item no-arrow mx-1">
+              <a class="nav-link " href="/admin/auth/user/" id="alertsDropdown" role="button" >
+                <i class="fas fa-users fa-fw"></i>
+              </a>
+            </li>
+             <!-- Nav Item - Alerts -->
+             <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">{{ total_log }}</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Logs
+                </h6>
+                {% for log in logs %}
+                <a class="dropdown-item d-flex align-items-center" href="/netto/verifcli/{{log.id}}">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">{{log.time}} | {{log.action}}</div>
+                    <span class="font-weight-bold">{{log.status}} | {{log.messages}}</span>
+                  </div>
+                </a>
+                {% endfor %}
+                
+                <a class="dropdown-item text-center small text-gray-500" href="/admin/netto/log">Show All Logs</a>
+              </div>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hallo! {{request.user.username}}</span>
+                <img class="img-profile rounded-circle" src="{% static 'image/bg-login.jpg'%}">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'accounts:logout' %}">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- End of Topbar -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            {% block pagecontent %}
+            {% endblock%}
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Terima donasi se-ikhlasnyah &copy;netto</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+   <!-- Bootstrap core JavaScript-->
+   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <!-- Core plugin JavaScript-->
+   <script src="{%static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+   <!-- Custom scripts for all pages-->
+   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+   <!-- Page level plugins -->
+   <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+  <!-- Page level plugins -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+  <script type="text/javascript"  src="{% static 'js/demo/datatables-demo.js' %}"></script>
+  <!-- Page custom script -->
+  <script>
+    $("#checkAll").click(function () {
+      $(".check").prop('checked', $(this).prop('checked'));
+    });
+  </script>
+</body>

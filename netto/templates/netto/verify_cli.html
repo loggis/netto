@@ -1,0 +1,36 @@
+<!-- 
+####################################################################################
+### Anggi Agista
+### email : agista.mailrespon@gmail.com
+#####################################################################################
+-->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"></h1>
+    <button onclick="window.print()">Print to PDF</button>
+    <p><span id="tanggalwaktu"></span></p>
+</div>
+<div class="row" >
+    <div class="col-xl-12 col-lg-7">
+        <div class="card shadow mb-4">
+            
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"></h6>
+                <p>Host : {{logcli.host}}</p>
+                <p>Execute : {{logcli.time}}</p>
+                <p>Status : {{logcli.status}}</p>
+                <p> Messages : {{logcli.messages}} </p>
+            </div>
+            <div class="card-body">
+                <h4>CLI</h4>
+                <pre>
+                    {{logcli.commandline}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page custom script-->
+<script>
+    var dt = new Date();
+    document.getElementById("tanggalwaktu").innerHTML = dt.toLocaleString();
+</script>

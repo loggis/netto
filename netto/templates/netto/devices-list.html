@@ -1,0 +1,62 @@
+<!-- 
+####################################################################################
+### Anggi Agista
+### email : agista.mailrespon@gmail.com
+#####################################################################################
+-->
+{% extends 'base.html' %}
+{% block pagecontent %}
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Devices List</h1>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-7">
+    <!-- Log Activity -->
+    <div class="card shadow mb-8">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Total Devices {{total_devices}}</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>IP Address</th>
+                  <th>Hostname</th>
+                  <th>Type</th>
+                  <th>Series</th>
+                  <th>Created At</th>
+                  <th>Manage</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                  <th>IP Address</th>
+                  <th>Hostname</th>
+                  <th>Type</th>
+                  <th>Series</th>
+                  <th>Created At</th>
+                  <th>Manage</th>
+              </tr>
+            </tfoot>
+            <tbody>
+                {% for listdevices in list_devices %}
+              <tr>
+                <td>{{listdevices.ip_address}}</td>
+                <td>{{listdevices.hostname}}</td>
+                <td>{{listdevices.device_type}}</td>
+                <td>{{listdevices.device_series}}</td>
+                <td>{{listdevices.created_at}}</td>
+                <td><a target="_blank" href="/netto/verifcli/{{listdevices.id}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-info fa-sm text-white-50"></i></a> <a href="/admin/netto/device/{{listdevices.id}}/change" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-edit fa-sm text-white-50"></i></a> <a href="/admin/netto/device/{{listdevices.id}}/delete" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-trash fa-sm text-white-50"></i></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+  </div>
+  </div>
+  </div>
+    
+</div>
+{% endblock %}

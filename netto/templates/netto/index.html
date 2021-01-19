@@ -1,0 +1,88 @@
+<!-- 
+####################################################################################
+### Anggi Agista
+### email : agista.mailrespon@gmail.com
+#####################################################################################
+-->
+{% extends 'base.html' %}
+{% block pagecontent %}
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+</div>
+    <div class="row">
+        <!-- Card Device Length -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Devices</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_devices}}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-server fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card Donate Paypal -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Donate</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a class="text-gray-50" href="https://paypal.me/AnggiAgista?locale.x=id_ID">PayPal</a></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card Donat OVO GoPay -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Donate</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a class="text-gray-50 small" href="#">OVO  0851 - 5507 - 7462</a></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card Log Activity -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Activites</div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ total_log }}/10.000</div>
+                      </div>
+                      <div class="col">
+                        <div class="progress progress-sm mr-2">
+                        <div class="progress-bar bg-info" role="progressbar" style="{{ log_persentase }}" aria-valuenow="{{ total_log }}" aria-valuemin="0" aria-valuemax="10000"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}
