@@ -12,4 +12,6 @@ How to install
      4. Run django with the command "python manage.py runserver --insecure"
 
 thank's
+
+To get a user and password please email me at
 agista.mailrespon@gmail.com
