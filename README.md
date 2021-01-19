@@ -1,8 +1,7 @@
 # netto
-# Python-Django-Paramiko-Network-Automation
+  Python-Django-Paramiko-Network-Automation
 
-How to install
-
+#How to install
      1. The application runs on python version 3 and above.
      2. Install some support packages
          pip install paramiko
