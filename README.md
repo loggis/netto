@@ -1,4 +1,4 @@
-# net
+# netto
 # Python-Django-Paramiko-Network-Automation
 
 How to install
